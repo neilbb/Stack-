@@ -19,7 +19,7 @@ bool stack_empty(Stack *stack){
 }
 
 bool stack_isfull(Stack *stack){
-        if (stack->size == 100){
+        if (stack->size == MAX_STACK_SIZE){
            return true;
        }else { 
               return false;
@@ -39,7 +39,7 @@ void stack_push(Stack *stack, int k){
 	   stack->size= stack->size + 1;
           }
 
-        else if (stack->size == 100){   
+        else if (stack->size == MAX_STACK_SIZE){   
 	   return;
           
       } else {  
@@ -75,7 +75,6 @@ int stack_pop(Stack *stack){
 void stack_free(Stack *stack){
     free(stack->data);
     free(stack);
-    printf("Memory Freed!\n");
 }
 
 

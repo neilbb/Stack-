@@ -1,17 +1,15 @@
 CC = gcc
-CFLAGS = -Wall -std=c99 
+CFLAGS = -Wall -MMD -std=c99
+EXEC = stack
 OBJECTS = main.o stack.o
+DEPENDS = ${OBJECTS:.o=.d}
 
-all: main
+${EXEC}: ${OBJECTS}
+	${CC} ${CFLAGS} ${OBJECTS} -o ${EXEC}
 
-main: $(OBJECTS)
-	$(CC) $(CFLAGS) main.o stack.o -o main
+-include ${DEPENDS}
 
-main.o : main.c stack.h
-	$(CC) $(CFLAGS) -c main.c 
-
-stack.o : stack.c stack.h
-	$(CC) $(CFLAGS) -c stack.c	
+.PHONY: clean
 
 clean:
-	rm *.o main
+	rm ${OBJECTS} ${EXEC} ${DEPENDS}
