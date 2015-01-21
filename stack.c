@@ -7,7 +7,7 @@ const int MAX_STACK_SIZE = 30;
 Stack* stack_init(){
 	Stack *stack = (Stack *)malloc(sizeof(Stack));
 	stack->size = 0; 
-        stack->data = (int *)malloc(sizeof(int) * MAX_STACK_SIZE);
+        stack->data = malloc(sizeof(int) * MAX_STACK_SIZE);
 	return stack;
 }
 
