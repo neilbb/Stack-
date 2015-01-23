@@ -10,7 +10,6 @@ $ ./stack # to execute
 ```
 
 # Notes
-This is not a dynamic implementation. If the stack is full it will not resize to accommodate additional items.
-
+This is not a dynamic implementation. If the stack is full it will not resize to accommodate additional items. 
 
 
